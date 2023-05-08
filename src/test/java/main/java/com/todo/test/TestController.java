@@ -1,46 +1,46 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package main.java.com.todo.test;
 import main.java.com.todo.controler.Controller;
 import java.time.LocalDateTime;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 
 
 public class TestController {
+    private Controller controller;
+    @BeforeEach
     
-    private Controller controller = new Controller();
     
-            
+    void setUp(){
+     controller = new Controller();
+    
+    }    
     @Test
     void testaddTask() {
-        controller.addTask("Prueba", "Prueba JUnit",true);
-        assertEquals(true, controller.searchTask("Prueba"));
+        controller.crearTarea("Prueba", "Prueba JUnit",true);
+        Assertions.assertEquals(true, controller.buscarTarea("Prueba"));
     }
     
     @Test
     void testReadTask() {
-        controller.addTask("Prueba", "Prueba JUnit",true);
-        assertEquals(false, controller.readTask("Prueba"));
+        controller.crearTarea("Prueba", "Prueba JUnit",true);
+        Assertions.assertEquals(true, controller.leerTarea("Prueba", "Prueba JUnit",true));
     }
     
     @Test
     void testUpdateTask() {
-        controller.addTask("Prueba", "Prueba JUnit",true);
+        controller.crearTarea("Prueba", "Prueba JUnit",true);
         controller.updateTask("Prueba","Prueba JUnit",true);
-        assertEquals(true, controller.readTask("Prueba"));
+        Assertions.assertEquals(true, controller.leerTarea("Prueba", "Prueba JUnit",true));
     }
     
     @Test
     void testDeleteTask() {
-        taskController.createTask("Prueba", "Prueba JUnit");
-        taskController.deleteTask("Prueba");
-        assertEquals(false, controller.searchTask("Prueba"));
+        controller.crearTarea("Prueba", "Prueba JUnit",true);
+        controller.borrarTarea("Prueba");
+        Assertions.assertEquals(false, controller.buscarTarea("Prueba"));
     }
 }
 
-    
-}
