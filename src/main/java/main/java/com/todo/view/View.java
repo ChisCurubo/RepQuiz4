@@ -5,7 +5,7 @@ import main.java.com.todo.controler.Controller;
 import main.java.com.todo.model.Model;
 
 public class View {
-    
+    //prueba
     public static void main(String[] args) {
         Controller mod = new Controller();
         Scanner sc = new Scanner(System.in);
